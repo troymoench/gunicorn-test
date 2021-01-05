@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: gunicorn_app
+    command: gunicorn -c gunicorn_conf.py main:app
+    network_mode: "bridge"
+    restart: always
+    ports:
+      - 8000:8000
